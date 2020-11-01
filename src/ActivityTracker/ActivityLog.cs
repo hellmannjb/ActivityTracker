@@ -14,7 +14,7 @@ namespace ActivityTracker
         {
             foreach (Activity a in ActivitiesList)
             {
-                System.Console.WriteLine(a);
+                System.Console.WriteLine(a.Name);
             }
         }
          public List<Activity> ActivitiesList = new List<Activity>();

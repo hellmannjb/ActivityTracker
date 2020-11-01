@@ -6,7 +6,7 @@ namespace ActivityTracker
     public class Activity
     {
 
-        public void SummarizeActivity()
+        public void SummarizeEntry()
         {
             System.Console.WriteLine($"Your activity, {Name} has been logged.");
         }
