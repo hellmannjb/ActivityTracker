@@ -11,8 +11,8 @@ namespace ActivityTracker
             System.Console.WriteLine($"Your activity, {Name} has been logged.");
         }
         public string Name {get; set;}
-        public double Duration {get; set;}
-        public int PerceivedExertion {get; set;}
+        public int Duration {get; set;}
+        public double PerceivedExertion {get; set;}
         
 
     }

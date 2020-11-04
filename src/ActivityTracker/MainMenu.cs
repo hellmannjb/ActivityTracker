@@ -33,7 +33,6 @@ namespace ActivityTracker
                     case "2":
                     {
                         ListActivitySummary();
-                        //"You have performed the following activities: {activitiesList}. Total duration of {totalDuration}. Avg Duration of {avgDuration}. Avg excertion of {avgExcertion}. Max excertion of {maxExcertion}.
                         break;
                     }
 
@@ -60,9 +59,9 @@ namespace ActivityTracker
             var input = Console.ReadLine();
             activity.Name = input;
             System.Console.WriteLine("How long did you perform the activity?");
-            activity.Duration = double.Parse(Console.ReadLine());
+            activity.Duration = int.Parse(Console.ReadLine());
             System.Console.WriteLine("What was your percieved exertion (1-10)?");
-            activity.PerceivedExertion = int.Parse(Console.ReadLine());
+            activity.PerceivedExertion = double.Parse(Console.ReadLine());
             activityLog.Add(activity);
             activity.SummarizeEntry();
         }
@@ -76,21 +75,6 @@ namespace ActivityTracker
         {
             throw new NotImplementedException();
         }
-
-        //public void Add(Activity activity)
-            //{
-                //ActivitiesList.Add(activity);
-            //}
-
-        //public void Summary()
-        //{
-            //foreach (Activity a in ActivitiesList)
-            //{
-                //System.Console.WriteLine(a.Name);
-            //}
-        //}
-
-         //public List<Activity> ActivitiesList = new List<Activity>();
 
     }
 }
