@@ -6,7 +6,14 @@ namespace ActivityTracker
     public class MainMenu
     {
 
+        const string path = "activity.json";
+
         ActivityLog activityLog = new ActivityLog();
+
+        public MainMenu()
+        {
+            activityLog.LoadActivities(path);
+        }
         internal void DisplayMenu()
         {
 
@@ -50,15 +57,17 @@ namespace ActivityTracker
                     }
                 }
             }
+            
+            activityLog.SaveActivities(path);
         }
         
         private void LogActivity()
         {
             Activity activity = new Activity();
-            System.Console.WriteLine("What activity would you like to log?");
+            System.Console.WriteLine("Please input the name of the activity.");
             var input = Console.ReadLine();
             activity.Name = input;
-            System.Console.WriteLine("How long did you perform the activity?");
+            System.Console.WriteLine("How long (minutes) did you perform the activity?");
             activity.Duration = int.Parse(Console.ReadLine());
             System.Console.WriteLine("What was your percieved exertion (1-10)?");
             activity.PerceivedExertion = double.Parse(Console.ReadLine());
