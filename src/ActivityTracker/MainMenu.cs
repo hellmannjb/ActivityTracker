@@ -20,6 +20,7 @@ namespace ActivityTracker
             var quitMenu = false;
             while (!quitMenu)
             {
+                System.Console.WriteLine();
                 System.Console.WriteLine("Activity Manager");
                 System.Console.WriteLine();
                 System.Console.WriteLine("1. Log an Activity");
@@ -82,7 +83,26 @@ namespace ActivityTracker
 
         private void ClearActivityLog()
         {
-            throw new NotImplementedException();
+            System.Console.WriteLine("Are you sure you want to clear activity logs?");
+            System.Console.WriteLine();
+            System.Console.WriteLine("1. Yes");
+            System.Console.WriteLine("2. No");
+            var doubleCheckResult = System.Console.ReadLine();
+
+            switch(doubleCheckResult)
+                {
+                    case "1":
+                    {
+                        activityLog.DeleteActivityLog();
+                        break;
+                    }
+
+                    case "2":
+                    {
+                        break;
+                    }
+                }
+            
         }
 
     }

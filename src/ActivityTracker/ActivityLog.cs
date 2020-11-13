@@ -43,7 +43,7 @@ namespace ActivityTracker
             }
 
             var avgExcertion = totalExcertion/ActivitiesList.Count;
-
+            System.Console.WriteLine();
             System.Console.WriteLine($"Your max excertion thus far is {maxExcertion}.");
             System.Console.WriteLine($"Your average excertion is {avgExcertion:N1}.");
             System.Console.WriteLine($"You have worked out for a total of {totalDuration} minutes.");
@@ -54,6 +54,11 @@ namespace ActivityTracker
         {
             var activityJson = JsonConvert.SerializeObject(ActivitiesList);
             File.WriteAllText(path, activityJson);
+        }
+
+        public void DeleteActivityLog()
+        { 
+                ActivitiesList.Clear();
         }
 
          public List<Activity> ActivitiesList = new List<Activity>();
