@@ -1,1 +1,1 @@
-[{"Name":"Running","Duration":44,"PerceivedExertion":5.5}]
+[{"Name":"Golf","Duration":420,"PerceivedExertion":5.5,"timeStamp":"2020-11-15T14:07:46.319454-05:00"},{"Name":"Tennis","Duration":45,"PerceivedExertion":6.8,"timeStamp":"2020-11-15T14:08:29.464761-05:00"},{"Name":"Swimming","Duration":34,"PerceivedExertion":6.6,"timeStamp":"2020-11-15T15:21:07.410279-05:00"},{"Name":"Cycling","Duration":90,"PerceivedExertion":8.8,"timeStamp":"2020-11-15T15:21:32.084869-05:00"}]

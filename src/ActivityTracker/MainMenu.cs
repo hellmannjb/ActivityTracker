@@ -71,14 +71,41 @@ namespace ActivityTracker
             System.Console.WriteLine("How long (minutes) did you perform the activity?");
             activity.Duration = int.Parse(Console.ReadLine());
             System.Console.WriteLine("What was your percieved exertion (1-10)?");
-            activity.PerceivedExertion = double.Parse(Console.ReadLine());
+            activity.PerceivedExertion = double.Parse(Console.ReadLine()); 
+            activity.timeStamp = DateTime.Now;
             activityLog.Add(activity);
             activity.SummarizeEntry();
         }
 
         private void ListActivitySummary()
         {
-            activityLog.Summary();
+            System.Console.WriteLine("Which activity summary would you like to see?");
+            System.Console.WriteLine();
+            System.Console.WriteLine("1. This Week's Activities");
+            System.Console.WriteLine("2. All Time");
+            System.Console.WriteLine("3. Exit");
+            var summaryChoice = System.Console.ReadLine();
+
+            switch(summaryChoice)
+            {
+                case "1":
+                {
+                    activityLog.WeeklySummary();
+                    break;
+                }
+
+                case "2":
+                {
+                    activityLog.AllTimeSummary();
+                    break;
+                }
+
+                case "3":
+                {
+                    break;
+                }
+            }
+            
         }
 
         private void ClearActivityLog()

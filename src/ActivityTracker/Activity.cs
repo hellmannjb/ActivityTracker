@@ -13,6 +13,7 @@ namespace ActivityTracker
         public string Name {get; set;}
         public int Duration {get; set;}
         public double PerceivedExertion {get; set;}
+        public DateTime timeStamp {get; set;}
         
 
     }
