@@ -68,17 +68,59 @@ namespace ActivityTracker
         private void LogActivity()
         {
             Activity activity = new Activity();
-            System.Console.WriteLine("Please input the name of the activity.");
-            var input = Console.ReadLine();
-            activity.Name = input;
-            System.Console.WriteLine("How long (minutes) did you perform the activity?");
-            activity.Duration = double.Parse(Console.ReadLine());
-            System.Console.WriteLine("What was your percieved exertion (1-10)?");
-            activity.PerceivedExertion = double.Parse(Console.ReadLine()); 
+            string activityName = null;
+            double activityDuration;
+            bool validDuration = false;
+            double activityExcertion;
+            bool validExcertion;
+
+            //checks that something is entered for activity name
+            while(!ActivityNameIsValid(activityName))
+            {
+                System.Console.WriteLine("Please input the name of the activity.");
+                activityName = Console.ReadLine();
+            }
+
+            activity.Name = activityName;
+
+            //checks that a valid double value is entered for activity duration
+            do 
+            {
+                System.Console.WriteLine("How long (minutes) did you perform the activity?");
+                string durationInput = Console.ReadLine();
+                validDuration = double.TryParse(durationInput, out activityDuration);
+            } while(!validDuration);
+            
+            activity.Duration = activityDuration;
+
+            //checks that a valid double value is entered for activity excertion
+            do
+            {
+                System.Console.WriteLine("What was your percieved exertion (1-10)?");
+                string excertionInput = Console.ReadLine();
+                validExcertion = double.TryParse(excertionInput, out activityExcertion);  
+            } while(!validExcertion);
+            
+            activity.PerceivedExertion = activityExcertion;
+
             activity.timeStamp = DateTime.Now;
             activityLog.Add(activity);
             activity.SummarizeEntry();
         }
+
+
+        //activity name validation
+        private bool ActivityNameIsValid(string activityName)
+        {
+            if (string.IsNullOrWhiteSpace(activityName))
+                return false;
+
+            if (activityName.Contains(" "))
+                return false;
+
+            return true;
+        }
+
 
         //Called if user selects "2" from main menu. User is presented more options. If user selects "1", activities list is summarized from the past week and displayed. If user selects "2", all activities from activities list are summarized.
         private void ListActivitySummary()
